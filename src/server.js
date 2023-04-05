@@ -12,6 +12,9 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
     res.render('index.ejs')
 })
+app.get('/about', (req, res) => {
+    res.render('index.ejs')
+})
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
