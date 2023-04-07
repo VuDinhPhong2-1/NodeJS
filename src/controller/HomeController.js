@@ -10,6 +10,12 @@ let getIDUser = async (req, res) => {
     console.log('check req param: ', user)
     return res.send('heloo')
 }
+let createNewUser = async (req, res) => {
+    console.log('check request', req.body);
+    let { firstName, lastName, email, address } = req.body;
+    await pool.execute('insert into users(firstName,lastName,email,address ) values(?,?,?,?)', [firstName, lastName, email, address]);
+    return res.send('heloo')
+}
 module.exports = {
-    getHomePage, getIDUser
+    getHomePage, getIDUser, createNewUser
 }
