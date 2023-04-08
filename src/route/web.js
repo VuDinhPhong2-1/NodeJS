@@ -1,12 +1,15 @@
 import Express from "express";
-import HomController from '../controller/homeController';
+import HomeController from '../controller/HomeController';
 let router = Express.Router();
 
 const initWebRoute = (app) => {
-    router.get('/', HomController.getHomePage)
-    router.get('/detail/user/:id', HomController.getIDUser)
-    router.post('/create-new-user', HomController.createNewUser)
-    return app.use('/', router)
+    router.get('/', HomeController.getHomePage)
+    router.get('/detail/user/:id', HomeController.getIDUser)
+    router.post('/create-new-user', HomeController.createNewUser)
+    router.post('/delete-user/:id', HomeController.deleteUser);
+    router.get('/edit-user/:id', HomeController.editUser);
+    router.post('/update-user', HomeController.postUpdateUser);
+    return app.use('/', router);
 }
 
 export default initWebRoute;
