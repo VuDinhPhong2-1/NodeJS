@@ -1,6 +1,7 @@
 import express from 'express';
 import configViewEngine from './configs/viewEngine';
 import initWebRoute from './route/web';
+import initAPIRoute from './route/api';
 // import connection from './configs/connectDB';
 
 require('dotenv').config();
@@ -14,6 +15,9 @@ app.use(express.json());
 
 // setup view engine
 configViewEngine(app);
+
+//init api route
+initAPIRoute(app);
 
 //init web route
 initWebRoute(app);
